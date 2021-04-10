@@ -1,7 +1,13 @@
 # Main logic helper functions
+
 import pygame
 
 def find_empty(bo):
+    """
+    Finds an empty space in the board
+    :param bo: 2d int list
+    :return: (int, int)
+    """
     for x in range(len(bo)):
         for y in range(len(bo[0])):
             if bo[x][y] == 0:
@@ -11,6 +17,14 @@ def find_empty(bo):
 
 
 def is_valid(bo, num, pos):
+    """
+    Returns if the attempted move is valid
+    :param bo: 2d int list
+    :param pos: (int, int)
+    :param num: int
+    :return: bool
+    """
+
     # Check row
     for x in range(len(bo[0])):
         if bo[pos[0]][x] == num and pos[1] != x:
@@ -33,6 +47,14 @@ def is_valid(bo, num, pos):
     return True
 
 def redraw_window(win, board, time, strikes):
+    """
+    Recreates/updates the board, font, time, and strikes
+    :param win: pygame obj
+    :param board: Grid object
+    :param time: time obj
+    :param strikes: int
+    :return: None
+    """
     win.fill((255,255,255))
     # Draw time
     font = pygame.font.SysFont("comicsans", 40)
@@ -46,9 +68,15 @@ def redraw_window(win, board, time, strikes):
 
 
 def format_time(secs):
+    """
+    Helps format time output for redraw_window
+    :param secs: int
+    :return: string
+    """
     sec = secs%60
     minute = secs//60
     hour = minute//60
 
     time_formatted = " " + str(minute) + ":" + str(sec)
     return time_formatted
+    
