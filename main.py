@@ -1,7 +1,6 @@
 # Main, contains game setup/logic 
 
 # I want the arrow keys to move the cursor as well as mouse
-# I want the end of the game to stop the clock but not close the app
 
 from Grid import Grid
 from main_helpers import redraw_window
@@ -40,7 +39,7 @@ while play:
                 key = 8
             if event.key == pygame.K_9:
                 key = 9
-            # Added for keypad keyboard
+            # Added for keypad
             if event.key == pygame.K_KP1:
                 key = 1
             if event.key == pygame.K_KP2:
@@ -74,30 +73,21 @@ while play:
                     key = None
 
                     if board.is_finished():
+                        play_time = time.time() - start
                         print("Game over")
+                        time.sleep(10)
+                        play = False
 
             if event.key == pygame.K_SPACE:
                 board.solve_board()
-        # TRYING TO STOP THE TIME WHEN BOARD IS SOLVED
-                # play_time = time.time() - start
-                # play = False
+                play_time = time.time() - start
+                print("Game over")
+                time.sleep(10)
+                play = False
 
-            # if event.key == pygame.K_ESCAPE:
-            #     print("Game ended")
-            #     play = False
-
-            # if event.key == pygame.K_UP:
-            #     test_arrows(pos, "U")
-                
-            # if event.key == pygame.K_DOWN:
-            #     test_arrows(pos, "D")
-
-            # if event.key == pygame.K_LEFT:
-            #     test_arrows(pos, "L")
-
-            # if event.key == pygame.K_RIGHT:
-            #     test_arrows(pos, "R")
-
+            if event.key == pygame.K_ESCAPE:
+                print("Game ended")
+                play = False
 
         if event.type == pygame.MOUSEBUTTONDOWN:
             pos = pygame.mouse.get_pos()

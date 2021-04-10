@@ -1,6 +1,7 @@
 # Sudoku-Solver
 
-This is a GUI sudoku game/solver built using pygame, incorporating a backtracking algorithm to recursively and incrementally find the correct values for each block. 
+This is a GUI sudoku game/solver built using pygame, incorporating a backtracking algorithm to recursively and incrementally find the correct values for each block.
+The user can play the game until they are stuck, then use the power of computing to solve the puzzle.
 
 
 ## Setup
