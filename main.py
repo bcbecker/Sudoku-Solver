@@ -96,6 +96,15 @@ while play:
                 board.select(clicked[0], clicked[1])
                 key = None
 
+        if event.key == pygame.K_UP:
+            board.arrows(pos, 'U')
+        if event.key == pygame.K_DOWN:
+            board.arrows(pos, 'D')
+        if event.key == pygame.K_LEFT:
+            board.arrows(pos, 'L')
+        if event.key == pygame.K_RIGHT:
+            board.arrows(pos, 'R')
+
 
     if board.selected and key != None:
         board.sketch_entry(key)

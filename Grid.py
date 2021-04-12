@@ -131,6 +131,23 @@ class Grid:
         else:
             return None
 
+# trying to get arrows to move cursor
+    def arrows(self, pos, direction):
+        if pos[0] < self.width and pos[1] < self.height:
+            gap = self.width / 9
+            x = pos[0] // gap
+            y = pos[1] // gap
+            if (direction == 'U'):
+                return (int(y+1),int(x))
+            elif (direction == 'D'):
+                return (int(y-1),int(x))
+            elif (direction == 'L'):
+                return (int(y),int(x-1))
+            if (direction == 'R'):
+                return (int(y),int(x+1))
+        else:
+            return None
+
     def is_finished(self):
         """
         Checks if the board has any incomplete/empty boxes
